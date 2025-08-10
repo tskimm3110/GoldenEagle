@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/BrandLogo.jpg" />
+    <title>GoldenEagle - ផលិតផលកសិកម្ម</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap");
+      body {
+        font-family: "Kantumruy Pro", sans-serif;
+        padding-top: 5rem; /* Add padding to the top of the body to prevent content from being hidden by the fixed navbar */
+      }
+      /* Custom styles to match the original design aesthetics as closely as possible with Tailwind */
+      .header-bg {
+        background-image: url("assets/productherosec.png");
+        background-size: cover;
+        background-position: center;
+        background-position-y: 0;
+        position: relative;
+
+        height: 350px;
+        overflow: hidden;
+      }
+      .hero-overlay {
+        background-color: rgba(62, 62, 62, 0.7);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+
+        height: 100%;
+      }
+      .product-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      }
+      .product-card img {
+        height: 220px;
+        object-fit: contain;
+        width: 100%;
+      }
+      .card-title {
+        color: #007044; /* Dark green for title */
+      }
+      .btn-view-details {
+        background-color: #00a85a; /* A brighter green for the button */
+        border-color: #00a85a;
+        color: white;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+      .btn-view-details:hover {
+        background-color: #008f4c;
+        transform: translateY(-2px);
+        color: white;
+      }
+      .social-link {
+        color: #ffc107; /* Gold/Yellow for social icons */
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      .social-link:hover {
+        color: #fff;
+        transform: scale(1.1);
+      }
+      .footer-bg {
+        background-color: #1a1a1a;
+        color: #f0f2f5;
+      }
+
+      /* New styles for the navbar */
+      .navbar {
+        background-color: #007044;
+        color: #ffc107;
+      }
+      .nav-link {
+        color: #ffc107;
+        transition: color 0.2s ease;
+      }
+      .nav-link:hover {
+        color: #fff;
+      }
+      .mobile-menu-link {
+        color: #ffc107;
+        background-color: #008f4c;
+        transition: background-color 0.2s ease;
+      }
+      .mobile-menu-link:hover {
+        background-color: #007044;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <!-- START: NEW NAVIGATION BAR -->
+    <nav class="navbar fixed top-0 w-full z-50 shadow-lg">
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <a
+          href="index.html"
+          class="text-2xl font-bold uppercase flex gap-2 items-center"
+        >
+          <img
+            src="assets/brandlogoNoBG.png"
+            class="w-[60px] m-0 rounded-full"
+            alt=""
+          />
+          GoldenEagle</a
+        >
+        <div class="hidden md:flex space-x-6 items-center">
+          <a href="index.html" class="nav-link font-bold text-lg">ទំព័រដើម</a>
+          <a href="index.html#about" class="nav-link font-bold text-lg​"
+            >អំពីពួកយើង</a
+          >
+          <a href="products.html" class="nav-link font-bold text-lg">ផលិតផល</a>
+          <a href="index.html#contact" class="nav-link font-bold text-lg"
+            >ទំនាក់ទំនង</a
+          >
+        </div>
+        <div class="md:hidden">
+          <button id="mobileMenuBtn" class="text-3xl text-yellow-400">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+      <div id="mobileMenu" class="hidden md:hidden">
+        <a
+          href="index.html"
+          class="block p-4 text-center text-lg mobile-menu-link"
+          >ទំព័រដើម</a
+        >
+        <a
+          href="index.html#about"
+          class="block p-4 text-center text-lg mobile-menu-link"
+          >អំពីពួកយើង</a
+        >
+        <a
+          href="products.html"
+          class="block p-4 text-center text-lg mobile-menu-link"
+          >ផលិតផល</a
+        >
+
+        <a
+          href="index.html#contact"
+          class="block p-4 text-center text-lg mobile-menu-link"
+          >ទំនាក់ទំនង</a
+        >
+      </div>
+    </nav>
+    <!-- END: NEW NAVIGATION BAR -->
+
+    <header
+      class="header-bg text-center text-white flex justify-center items-center shadow-md"
+    >
+      <div class="hero-overlay"></div>
+      <div class="relative mx-auto px-4 z-10">
+        <p class="z-2 text-4xl font-bold text-shadow-lg">
+          ផលិតផលកសិកម្មដែលមានគុណភាពខ្ពស់សម្រាប់
+          <br />
+          <br />
+          <span
+            class="text-[#ffc107] text-6xl font-bold text-shadow-lg underline"
+            >កសិករខ្មែរ</span
+          >
+        </p>
+      </div>
+    </header>
+
+    <main class="container mx-auto py-12 px-4">
+      <div class="mb-8 flex flex-col sm:flex-row gap-4">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="ស្វែងរកផលិតផលតាមឈ្មោះ..."
+          class="search-input w-full sm:w-1/2 p-3 rounded-md border border-gray-300 focus:border-green-500"
+        />
+        <select
+          id="categoryFilter"
+          class="category-select w-full sm:w-1/4 p-3 rounded-md border border-gray-300 focus:border-green-500"
+        >
+          <option value="">គ្រប់ប្រភេទ</option>
+          <!-- Categories will be populated dynamically -->
+        </select>
+      </div>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        id="productGrid"
+      ></div>
+    </main>
+
+    <footer class="bg-[#007044] text-[#ffc107] py-12">
+      <div class="container mx-auto px-4">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center md:text-left"
+        >
+          <div>
+            <h3 class="text-2xl font-bold mb-4 uppercase">GoldenEagle</h3>
+            <p class="text-white mb-4">
+              យើងជាក្រុមហ៊ុនផ្គត់ផ្គង់ផលិតផលកសិកម្មដល់ប្រជាជនកម្ពុជា
+            </p>
+            <div class="flex justify-center md:justify-start space-x-4">
+              <a
+                href="https://t.me/geoperation"
+                class="social-link"
+                target="_blank"
+              >
+                <i class="fab fa-telegram fa-2x"></i>
+              </a>
+              <a
+                href="https://www.facebook.com/share/16jJCKyhTN/?mibextid=wwXIfr"
+                class="social-link"
+                target="_blank"
+              >
+                <i class="fa-brands fa-facebook fa-2x"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold mb-4">រុករក</h3>
+            <ul class="space-y-2">
+              <li><a href="index.html" class="text-white">ទំព័រដើម</a></li>
+              <li>
+                <a href="index.html#about" class="text-white">អំពីពួកយើង</a>
+              </li>
+              <li><a href="products.html" class="text-white">ផលិតផល</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold mb-4">ទំនាក់ទំនង</h3>
+            <ul class="space-y-2">
+              <li class="flex items-center justify-center md:justify-start">
+                <i class="fas fa-map-marker-alt text-green-500 mr-3"></i>
+                <span class="text-white">អាសយដ្ឋាន៖ ផ្លូវ ១២៣...</span>
+              </li>
+              <li class="flex items-center justify-center md:justify-start">
+                <i class="fas fa-phone text-green-500 mr-3"></i>
+                <span class="text-white">(+855) 12 345 678</span>
+              </li>
+              <li class="flex items-center justify-center md:justify-start">
+                <i class="fas fa-envelope text-green-500 mr-3"></i>
+                <span class="text-white">info@goldeneagle.com</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold mb-4">ស្វែងរកពួកយើង</h3>
+            <div class="bg-gray-700 h-32 rounded-lg mb-4">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18..."
+                width="100%"
+                height="100%"
+                style="border: 0"
+                loading="lazy"
+                class="rounded-lg"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <hr class="border-[#ffc107] my-8" />
+        <p class="text-center text-white text-sm">
+          &copy; 2025 GoldenEagle. រក្សាសិទ្ធិគ្រប់យ៉ាង។
+        </p>
+      </div>
+    </footer>
+
+    <div
+      class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden"
+      id="productModal"
+    >
+      <div
+        class="relative top-20 mx-auto p-5 border w-11/12 md:w-2/3 lg:w-1/2 shadow-lg rounded-md bg-white"
+      >
+        <div class="flex justify-between items-center pb-3">
+          <h3
+            class="text-2xl font-semibold text-green-700"
+            id="productModalLabel"
+          ></h3>
+          <button
+            type="button"
+            class="text-gray-400 hover:text-gray-600 text-2xl"
+            onclick="document.getElementById('productModal').classList.add('hidden')"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="mt-2 text-gray-700">
+          <p id="modalActiveIngredient" class="mb-2"></p>
+          <p id="modalBenefits" class="mb-2"></p>
+          <p id="modalVolume" class="mb-2"></p>
+        </div>
+        <div class="mt-4 text-right">
+          <button
+            type="button"
+            class="px-4 py-2 bg-gray-500 text-white text-base font-medium rounded-md w-full sm:w-auto shadow-sm hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300"
+            onclick="document.getElementById('productModal').classList.add('hidden')"
+          >
+            បិទ
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      const products = [
+        {
+          title: "ឥន្រ្ទី ១៦",
+          image: "assets/ឥន្រ្ទី​១៦ GE 16.png",
+          active: "NPK 20-5-5+TE",
+          benefits:
+            "ជាប្រភេទជីរាវប្រើសម្រាប់បំប៉នដំណាំស្រូបយកតាមរយះស្លឹក មែក ដើម និងឬសជួយឲ្យដំណាំឆាប់បែក គុម្ព ជួយដើមស្លឹកលូតលាស់លឿនរហ័ស ឆាប់ចេញត្រួយថ្មី និងធ្វើឲ្យដំណាំដុះឬសខ្លាំង។​ លើសពីនេះជួយបន្សាបជាតិ អាស៊ីត ជាតិពុលសរីរាង្គផងដែរ។",
+          volume: "ចំណុះ ១លីត្រ",
+          category: "ជីបំប៉នប្រភេទទឹក",
+        },
+        {
+          title: "ឥន្រ្ទី ១៧",
+          image: "assets/ឥន្រ្ទី ១៧ GE 17.png",
+          active: "NPK 5-20-5+TE",
+          benefits:
+            "ជាប្រភេទជីរាវប្រើសម្រាប់បំប៉នដំណាំស្រូបយកតាមរយះស្លឹក មែក​ ដើមនិងឬស បានយ៉ាងមានប្រសិទ្ធ ភាព ជម្រុញដល់ការលូតលាស់ប្រព័ន្ធឬស ជាពិសេសជួយបន្សាបជាតិអាស៊ីតនៅក្នុងដី ជួយដាស់ពន្លកផ្កា ឲ្យឆាប់ចេញ ផ្កា ស្មើគ្នាស្រុះល្អ ផ្កាច្រើនទ្វេដង  ជួយឲ្យផ្កាឆាប់ឡើងក្បាលរុយ ក្ដឹប និងផ្លែឆាប់រីកធំធាត់រហ័ស ។",
+          volume: "ចំណុះ ១លីត្រ",
+          category: "ជីបំប៉នប្រភេទទឹក",
+        },
+        {
+          title: "ឥន្រ្ទី១៨",
+          image: "assets/ឥន្រ្ទី ១៨ GE 18.png",
+          active: "NPK 5-5-20+TE",
+          benefits:
+            "ជាប្រភេទជីរាវប្រើសម្រាប់បំប៉នដំណាំស្រូបយកតាមរយះស្លឹក មែក ដើមនិងឬស​ ជ្រាបចូលដំណាំយ៉ាងរហ័ស មានប្រសិទ្ធភាពជួយជម្រុញការលូតលាស់ លើសពីនេះជួយឲ្យដំណាំឆាប់ចេញក្ដឹប ផ្លែស្រុះគ្នាល្អ ផ្លែធំថ្លោស ភ្លឺរលោង និងមានទម្ងន់ ។",
+          volume: "ចំណុះ ១លីត្រ",
+          category: "ជីបំប៉នប្រភេទទឹក",
+        },
+        {
+          title: "ឥន្រ្ទី អឹម ភី ខេ",
+          image: "assets/ឥន្រ្ទី អឹម ភី ខេ.png",
+          active: "MPK 0-52-34+TE",
+          benefits:
+            "ជាប្រភេទជីបំប៉នដែលមានភាពសុទ្ធ ៩៨% ដែលមានក្លររ៉ាយទាបជាង ០,២% និងគ្មានអង្គធាតុធ្ងន់ផ្សេង ទៀតដែលប៉ះពាល់ដល់រុក្ខជាតិ។វាផ្តល់នូវភាពសុទ្ធ ផូស្វ័រ និងប៉ូតាស្យូម ដែលជម្រុញ ការបញ្ចេញផ្កាច្រើន និងបង្កើននូវ គុណភាពផ្លែ។",
+          volume: "ចំណុះ ១លីត្រ",
+          category: "ជីបំប៉នប្រភេទទឹក",
+        },
+        {
+          title: "ឥន្រ្ទី កាណូ",
+          image: "https://placehold.co/400x300/007044/ffc107?text=Indra+Kano",
+          active: "KNO3 13-0-46+TE",
+          benefits:
+            "ជាប្រភេទជីទឹក មានអាស៊ូត និងប៉ូតាស្យូម ខ្ពស់រួមជាមួយបរិមាណសូដ្យូម ដែលល្អបំផុត។ ជួយដល់ការ បង្កកំណើតពន្លកត្រួយ និងផ្កាថ្មី។ សារធាតុ អាស៊ូត និងប៉ូតាស្យូម ត្រូវទាមទារដោយរុក្ខជាតិដើម្បីគាំទ្រដល់គុណភាព នៃការប្រមូលផល ការបង្កើតប្រូតេអ៉ីន ភាពធន់នឹងជម្ងឺ និងប្រើប្រាស់ទឹក ដោយមានប្រសិទ្ធភាព។",
+          volume: "ចំណុណ ១លីត្រ",
+          category: "ជីបំប៉នប្រភេទទឹក",
+        },
+        {
+          title: "ឥន្រ្ទី អិន",
+          image: "assets/ឥន្រ្ទីអិន GE N.png",
+          active: "UREA 46-0-0+TE",
+          benefits:
+            "ជួយឲ្យដំណាំដុះលូតលាស់ឬសរហ័ស​ ដើមឆាប់ធំថ្លោស បែកគុម្ពច្រើន ស្លឹកបៃតងបានយូរ​ និង ដើមរឹងមាំ ជួយឲ្យផ្កាឆាប់ចេញ និងឡើងក្បាលរុយ ក្តឹបឆាប់លូតលាស់ និងផ្លែឆាប់ដាក់សាច់ ធន់និងអាកាសធាតុ ។",
+          volume: "ចំណុះ ១លីត្រ",
+          category: "ជីបំប៉នប្រភេទទឹក",
+        },
+        {
+          title: "ឥន្រ្ទី អិន ប៉េ",
+          image: "assets/ឥន្រ្ទី អិន ប៉េ GE NP.png",
+          active: "DAP 18-46-0+TE",
+          benefits:
+            "ជួយឲ្យដំណាំដុះឬសខ្លាំង ដើមបែកគុម្ពច្រើន និងរឹងមាំថែមទាំងជួយឲ្យដំណាំឆាប់ ចេញផ្កាស្រុះ និងមាន ក្តឹបផ្លែច្រើន។ជួយឲ្យដំណាំធន់នឹងជម្ងឺ សត្វល្អិត និងអាកាសធាតុផងដែរ។ឥន្រ្ទី អិន ប៉េ អាចប្រើប្រាស់លើដំណាំ ស្រូវ ឈូក បន្លែ ដំណាំឈើហូបផ្លែ និងដំណាំឧស្សាហកម្ម។",
+          volume: "ចំណុះ ១លីត្រ",
+          category: "ជីបំប៉នប្រភេទទឹក",
+        },
+        {
+          title: "ឥន្រ្ទី ខេ",
+          image: "assets/ឥន្រ្ទីអឹម ខេ Mocup.jpg",
+          active: "KCL 0-0-60+TE",
+          benefits:
+            "ជួយឲ្យដំណាំ ឆាប់ឡើងក្តឹប ឆាប់ដាក់សាច់ ផ្លែធំថ្លោស មានទម្ងន់ មានរសជាតិឆ្ងាញ់។ជួយប្រឆាំងនឹងជម្ងឺ និងសត្វល្អិតផងដែរ។អាចប្រើប្រាស់លើដំណាំ ស្រូវ ឈូក បន្លែទូទៅ ដំណាំឈើហូបផ្លែ និងដំណាំឧស្សាហកម្ម។",
+          volume: "ចំណុះ ១លីត្រ",
+          category: "ជីបំប៉នប្រភេទទឹក",
+        },
+        {
+          title: "ឥន្រ្ទី កែង",
+          image: "assets/ឥន្រ្ទីកែង 15-15-15.png",
+          active: "NPK 15-15-15+TE",
+          benefits:
+            "ជំនាញជួយដល់ប្រព័ន្ធឬសដំណាំ (ឆាប់កើតឬសថ្មី) ជួយឲ្យដើមរឹងមាំ មានកម្លាំងទ្វេដង ជួយឲ្យស្លឹក ក្រាស់ បៃតងបានយូរ ជួយឲ្យឆាប់ចេញផ្កាស្រុះគ្នា ឆាប់ឡើងក្បាលរុយ ឆាប់ឡើងក្តឹប ជួយឲ្យក្តឹបឆាប់ធំថ្លោស ជួយឲ្យផ្លែ (ឆាប់ដាក់ទឹកដោះ និងម្សៅ) ធ្វើឲ្យកាន់ផ្កា ផ្លែស្អាតត្រូវខ្នាត។",
+          volume: "ចំណុះ ១លីត្រ",
+          category: "ជីបំប៉នប្រភេទទឹក",
+        },
+        {
+          title: "ឥន្ទ្រី ជាប់ចិត្ត",
+          image: "assets/ជាប់ចិត្ត Tiger Crop.png",
+          active: "Humic + Algenic + SiO2 + K2O + Fulvic + TE",
+          benefits:
+            "ជាប្រភេទជីកែដី ធ្វើឲ្យដីផុសធូរល្អ ជួយបន្សាបជាតិអាស៊ីតនៅក្នុងដី បង្កើតអតិសុខុមប្រាណឡើងវិញ។ ជួយផ្ដល់ថាមពលដល់ដំណាំតាមរយះស្លឹក កាត់បន្ថយជ្រុះក្ដឹបផ្លែ ជួយបង្កើនក្នុងការកាន់ផ្កា ក្ដឹប និងផ្លែបានច្រើន។ជាពិសេសធ្វើឲ្យមានរសជាតិផ្អែមឆ្ងាញ់ រក្សានូវរសជាតិដើម។",
+          volume: "ទម្ងន់ ១គីឡូ, ៥០០ក្រាម, ៤០ក្រាម",
+          category: "ជីបំប៉នប្រភេទម្សៅ",
+        },
+        {
+          title: "ឥន្រ្ទីស្លឹក",
+          image: "assets/ឥន្រ្ទីស្លឹក 35-15-15.png",
+          active: "NPK 35-15-15+TE",
+          benefits:
+            "ជាប្រភេទជីរលាយក្នុងទឹក១០០% សម្រាប់បាញ់លើស្លឹក ជម្រុញឲ្យគ្រប់សរីរាង្គដំណាំលូតលាស់បានល្អ។ ល្អបំផុតនៅពេលដំណាំទើបដាំរហូតដល់ប្រមូលផល ជាពិសេសធ្វើឲ្យសរីរាង្គរឹងមាំគ្រប់គ្រាន់គ្រប់ដំណាក់កាលលូតលាស់ ហើយអាចប្រើដើម្បីជួយបំប៉នដំណាំទើបប្រមូលផលរួចផងដែរ។",
+          volume: "ទម្ងន់ ១គីឡូ , ៥០ក្រាម",
+          category: "ជីបំប៉នប្រភេទម្សៅ",
+        },
+        {
+          title: "ឥន្រ្ទី ផ្កា",
+          image: "assets/ឥន្រ្ទីផ្កា 13-63-13.png",
+          active: "NPK 13-63-13+TE",
+          benefits:
+            "ជាប្រភេទជីរលាយក្នុងទឹក១០០%សម្រាប់បាញ់លើស្លឹក ជម្រុញគ្រប់ប្រភេទដំណាំឲ្យលូតលាស់បានល្អ។ ជំនាញបំប៉ន ឬសបានច្រើន ដងដើមរឹងមាំ ចេញផ្កាស្រុះ កាន់ផ្កា​ កាន់ក្តឹប។",
+          volume: "ទម្ងន់ ១គីឡូ , ៥០ក្រាម",
+          category: "ជីបំប៉នប្រភេទម្សៅ",
+        },
+        {
+          title: "ឥន្រ្ទី ផ្លែ",
+          image: "assets/ឥន្រ្ទីផ្លែ​ 7-5-45.png",
+          active: "NPK 7-5-45+TE",
+          benefits:
+            "ជាប្រភេទជីរលាយក្នុងទឹក១០០% សម្រាប់បាញ់លើស្លឹក​ជម្រុញឲ្យគ្រប់ប្រភេទដំណាំទទួលបានទិន្នផល ច្រើន។ ជំនាញបំប៉ន ចេញផ្កាលឿន ផ្លែច្រើន គ្រាប់ពេញល្អ មើមធំ ម្សៅច្រើន រសជាតិផ្អែម សម្បុរភ្លឺរលោង។",
+          volume: "ទម្ងន់ ១គីឡូ , ៥០ក្រាម",
+          category: "ជីបំប៉នប្រភេទម្សៅ",
+        },
+        {
+          title: "ឥន្ទ្រី ហៃ សូ",
+          image: "assets/ឥន្រ្ទីហៃសូ 6-32-35.png",
+          active: "NPK 6-32-35+TE",
+          benefits:
+            "ជាជីបំប៉នបន្ថែមសម្រាប់ដំណាំគ្រប់ប្រភេទ​ ជួយឲ្យដំណាំចេញផ្កាស្រុះគ្នាល្អ កាន់ក្តឹបបានច្រើន និងជួយឲ្យ ដំណាំមានដើមរឹងមាំ កាត់បន្ថយការជ្រុះផ្កា ក្ដឹប និងផ្លែ មានសម្បុរភ្លឺរលោង នឹងមានទម្ងន់។បាញ់ថ្នាំ ១៥ថ្ងៃមុនការប្រមូល ផល ជួយឲ្យដំណាំមានរាងស្អាត ទុំស្រុះគ្នា។",
+          volume: "ទម្ងន់ ១គីឡូ",
+          category: "ជីបំប៉នប្រភេទម្សៅ",
+        },
+        {
+          title: "ឥន្រ្ទីហ្រ្គូ",
+          image: "assets/ឥន្រ្ទីហ្រ្គូ 16-8-34.png",
+          active: "NPK 16-8-39+TE",
+          benefits:
+            "មានសារធាតុ NPK 16-8-39 រួមជាមួយមីក្រូសារធាតុ ផ្តល់សារធាតុចិញ្ចឹមគ្រប់គ្រាន់ ធ្វើឲ្យផ្កាបង្កាត់លម្អងបានល្អ ឆាប់ចេញក្បាលរុយ កាត់បន្ថយការជ្រុះក្តឹប បំប៉នក្តឹប និងផ្លែឲ្យឆាប់ធំលឿនរហ័ស។",
+          volume: "ទម្ងន់ ១គីឡូ",
+          category: "ជីបំប៉នប្រភេទម្សៅ",
+        },
+        {
+          title: "ឥន្រ្ទី កាលី",
+          image: "https://placehold.co/400x300/007044/ffc107?text=Indra+Kali",
+          active: "KCL 0-0-60+TE",
+          benefits:
+            "ជាប្រភេទជីបំប៉នដែលជម្រុញដំណាំឲ្យឆាប់ឡើងក្បាលរុយ ឆាប់ឡើងក្ដឹប និងដាក់សាច់បានល្អ ផ្លែធំ ថ្លោស មានទម្ងន់និងរសជាតិឆ្ងាញ់។ អាចប្រើប្រាស់បានលើដំណាំ៖ ស្វាយ ស្រូវ ចន្ទី បន្លែទូទៅ ដំណាំឈើហូបផ្លែ​ និងដំណាំ ឧស្សាហកម្ម។",
+          volume: "ទម្ងន់ ១គីឡូ",
+          category: "ជីបំប៉នប្រភេទម្សៅ",
+        },
+        {
+          title: "ឥន្រ្ទី មហាផល",
+          image:
+            "https://placehold.co/400x300/007044/ffc107?text=Indra+Moha+Phal",
+          active: "NPK + Atonik + TE",
+          benefits:
+            "ជួយដល់ការកកើតផ្កា ក្តឹប ចេញផ្កាស្រុះគ្នា និងជួយឲ្យផ្លែឆាប់ធំថ្លោស ភ្លឺរលោង និងមានទម្ងន់ រសជាតិឆ្ងាញ់ជួយឲ្យដីមានសារធាតុចិញ្ចឹមគ្រប់គ្រាន់ សម្រាប់ដំណាំលូតលាស់នៅពេលស្រោចគល់។",
+          volume: "ចំណុះ ១លីត្រ",
+          category: "ជីប្រូតេអ៉ីន និងមីក្រូធាតុ",
+        },
+        {
+          title: "ឥន្រ្ទី បូរុន",
+          image: "https://placehold.co/400x300/007044/ffc107?text=Indra+Boron",
+          active: "Boron 120g/L",
+          benefits:
+            "បង្កើនចំនួនផ្កា និងកម្លាំងជីវិតរបស់លម្អងផ្កា បង្កើនការកាន់ក្តឹប។ កាត់បន្ថយការជ្រុះផ្កា ក្ដឹប និងផ្លែ (ជួយឲ្យដំណាំ ចេញផ្កាស្រុះ មិនមានផ្កាក្តៀប) បង្កើនទិន្នផល និងគុណភាពកសិផល និងជាពិសេសជួយដល់ដំណាំស្រូវ បែកគុម្ពស្រុះ មិនស្កក ដាក់គ្រាប់បានល្អ និងមានកួរស្រូវវែង ផ្លែច្រើន។",
+          volume: "ចំណុះ ១លីត្រ",
+          category: "ជីប្រូតេអ៉ីន និងមីក្រូធាតុ",
+        },
+        {
+          title: "ឥន្រ្ទី​ ស៊ីវីដ",
+          image:
+            "https://placehold.co/400x300/007044/ffc107?text=Indra+Seaweed",
+          active: "Organic Matter + Seaweed + NPK + TE",
+          benefits:
+            "ជួយឲ្យពន្លកដុះចេញមករឹងមាំ និងធ្វើឲ្យប្រព័ន្ធឬសរបស់ស្រូវមានសុខភាពល្អ ធ្វើឲ្យកន្សោមកួរ ឬចង្កោម កួរច្រើន និងមានភាពស្មើគ្រប់កួរ។ធ្វើឲ្យដំណាំលូតលាស់បានលឿន ជម្រុញការលូតលាស់យ៉ាងឆាប់រហ័សទៅលើដំណាំ ដូចជា៖ស្ពៃក្តោប ខាត់ណាផ្កា ដំឡូងជ្វា សាឡាត់ ខ្ទឹម ដំឡូងមី ស្វាយចន្ទី តាង៉ែន ក្រូចឆ្មា សាវម៉ាវ ទុរេន ស្វាយ​ ឳឡឹក កៅស៊ូ និងដំណាំហូបផ្លែជាច្រើនមុខទៀត។",
+          volume: "ចំណុះ ១លីត្រ",
+          category: "ជីប្រូតេអ៉ីន និងមីក្រូធាតុ",
+        },
+        {
+          title: "ឥន្រ្ទី បៃតង",
+          image: "assets/ឥន្រ្ទីបៃតង GE Green.png",
+          active: "NPK + Humic + Amino + TE",
+          benefits:
+            "មានប្រសិទ្ធភាពខ្ពស់ទៅលើការជួយឬសឲ្យចេញខ្លាំង ដើមធំរឹងមាំ ស្លឹកពណ៌បៃតងបានយូរ ហើយក្រាស់ ផ្កាចេញស្រុះ។ជាពិសេស ជួយរក្សាសំណើមបានយូរ សម្រាប់ដំណាំដែលដាំដុះ នៅទីវាលដូចជា សណ្តែកបាយ សណ្តែកដី ល្ង ដំឡូងមី ចន្ទី ស្វាយ ទុរេន សាវម៉ាវ ពោត ម្នាស់ កៅស៊ូ ខ្ទឹមបារាំង ឪឡឹក ល្ហុង ស្រូវ-ល-។",
+          volume: "ចំណុះ ៥លីត្រ",
+          category: "ជីប្រូតេអ៉ីន និងមីក្រូធាតុ",
+        },
+        {
+          title: "ឥន្រ្ទី ហូមមីក",
+          image: "https://placehold.co/400x300/007044/ffc107?text=Indra+Humic",
+          active: "NPK + Humic + Amino + TE",
+          benefits:
+            "ជួយកែលម្អគុណភាពដី ធ្វើឲ្យដីធូរ ផុស ជាពិសេសប្រភេទដីមានជាតិអាស៊ីត ដីប្រៃ។ ជួយបង្កើនជីជាតិដី ជាពិសេសដីដែលបានប្រើជីគីមីច្រើនដីរិចរិល ដីខ្សោះជីជាតិ។ ជួយឲ្យប្រព័ន្ធឬសលូតលាស់ល្អ បង្កើនសមត្ថភាពស្រូប យកសារធាតុចិញ្ចឹម។",
+          volume: "ចំណុះ ៥លីត្រ",
+          category: "ជីប្រូតេអ៉ីន និងមីក្រូធាតុ",
+        },
+        {
+          title: "ឥន្ទ្រី ប្រាំ",
+          image: "https://placehold.co/400x300/007044/ffc107?text=Indra+Pram",
+          active: "Zn + Cu + B",
+          benefits:
+            "ជួយដល់ការបង្កើតផ្កា លម្អងផ្កា​ ថែមទាំងជាអ្នកកំណត់ចំនួនគ្រាប់ ការបង្កកំណើត ជាក្តឹប។ ជម្រុញការ ផលិតអាហារ អាស៊ូត ប្រូតេអុីន និងម្សៅ។ជម្រុញឬស ឲ្យស្រូបយកសារធាតុចិញ្ចឹមរហ័ស និងជួយទប់ស្កាត់ការរីករាល ដាលជម្ងឺ ជួយប្រឆាំងការរលួយផ្កា ក្តឹប និងផ្លែ។",
+          volume: "ចំណុះ ១លីត្រ",
+          category: "ជីប្រូតេអ៉ីន និងមីក្រូធាតុ",
+        },
+        {
+          title: "ឥន្រ្ទី កាល់",
+          image: "https://placehold.co/400x300/007044/ffc107?text=Indra+Cal",
+          active: "Calcium 120g/L + MgO 30g/L SL",
+          benefits:
+            "ជំនាញជួយដល់ការលូតលាស់ របស់ឬសជញ្ជក់ ជួយបញ្ចេញឬសថ្មី​ ជួយឲ្យឆាប់ចេញផ្កាបានលឿន ជាពិសេស ជួយដល់ការលូតលាស់ប្រព័ន្ធឬសស្បៃ និងឬសថ្មី ជម្រុញការស្រូបទឹក ជីជាតិពីក្នុងដី ឆាប់ដាក់ក្តឹប កាន់បាន ល្អ ក្តឹបឆាប់ធំ ផ្តល់ភាពធន់នឹងជម្ងឺ និងអាកាសធាតុ។",
+          volume: "ចំណុះ ១លីត្រ",
+          category: "ជីប្រូតេអ៉ីន និងមីក្រូធាតុ",
+        },
+        {
+          title: "ឥន្ទ្រី ម៉ាញ៉េហ្ស៊ីន",
+          image:
+            "https://placehold.co/400x300/007044/ffc107?text=Indra+Magnesium",
+          active: "Mg + Ammonium Nitrogen + TE",
+          benefits:
+            "ជំនាញជួយបំពេញថាមពលបន្ថែមដល់ដំណាំដែលទើបប្រមូលផលរួច និងជួយបង្កើតម៉ូលេគុលនៃការធ្វើ រស្មីសំយោគ ជាធាតុផ្សំនៃ ពណ៌បៃតងសំយោគប្រូតេអុីន។ជួយសម្រួលដល់ការចេញផ្កាមកស្រុះគ្នា និងកាត់បន្ថយការ ជ្រុះក្តឹប។",
+          volume: "ចំណុះ ១លីត្រ",
+          category: "ជីប្រូតេអ៉ីន និងមីក្រូធាតុ",
+        },
+        {
+          title: "ឥន្រ្ទី ជី",
+          image: "https://placehold.co/400x300/007044/ffc107?text=Indra+Chi",
+          active: "Carbendazim 50% SC",
+          benefits:
+            "ជាប្រភេទថ្នាំព្យាបាលនិងការពារជម្ងឺផ្សិតដែលមានប្រសិទ្ធភាពខ្ពស់។ វាមានប្រសិទ្ធភាពខ្ពស់ក្នុងការការពារ និងព្យាបាលជម្ងឺដូចជា៖ជម្ងឺប្លាស ជម្ងឺផ្សិត រលាកទងស្លឹក ច្រេះដែក អុចស្លឹក ស្កកគ្រាប់ ជាដើម។",
+          volume: "ចំណុះ ១លីត្រ , ៥០០ម.ល",
+          category: "ជីប្រូតេអ៉ីន និងមីក្រូធាតុ",
+        },
+        {
+          title: "ឥន្រ្ទី មែនកូ",
+          image: "https://placehold.co/400x300/007044/ffc107?text=Indra+Manco",
+          active: "Mancozeb 640g/Kg + Metalaxy 80g/Kg",
+          benefits:
+            "ជាប្រភេទថ្នាំព្យាបាលនិងការពារជម្ងឺដែលផ្សំដោយធាតុ២បញ្ចូលគ្នាមានឥទ្ធិពលដោយប៉ះផ្ទាល់ និងជ្រាប ចូលមានប្រសិទ្ធភាពខ្ពស់។ថ្នាំនេះអាចការពារនិងព្យាបាលជម្ងឺបានច្រើនប្រភេទដូចជា៖​ ជម្ងឺផ្សិតអុចស្លឹក រលួយផ្កា រលួយផ្លែ អង់ត្រាណូស ផ្សិតរលាក​ រលួយឬស ងាប់កូនដំណាំបន្លែឈើហូបផ្លែ ជម្ងឺប្រេះដើម ហៀរជ័រក្រូច ទុរេន ជាដើម។",
+          volume: "ទម្ងន់ ១គីឡូ , ១០០ក្រាម",
+          category: "ថ្នាំការពារ និង ព្យាបាលជម្ងឺ",
+        },
+        {
+          title: "ឥន្រ្ទី អាបា",
+          image: "https://placehold.co/400x300/007044/ffc107?text=Indra+Aba",
+          active: "Abamectin 3.6% EC",
+          benefits:
+            "ជាប្រភេទថ្នាំជីវសាស្រ្ត ជំនាន់ថ្មី វាមានប្រសិទ្ធភាពខ្ពស់ក្នុងការកម្ចាត់ពពួក ដង្កូវកាត់ស្លឹក ដង្កូវស៊ីរូងដើម ទ្រីប ខ្យងបំផ្លាញស្រូវ ក្តាម និងដង្កូវស៊ីបំផ្លាញដំណាំជាច្រើនផ្សេងទៀត។",
+          volume: "ចំណុះ ៤៥០ម.ល",
+          category: "ថ្នាំកម្ចាត់សត្វល្អិត",
+        },
+        {
+          title: "ឥន្រ្ទី អ៉ីម៉ា",
+          image: "https://placehold.co/400x300/007044/ffc107?text=Indra+Ima",
+          active: "Emamectin Benzoate 50g/L SC",
+          benefits:
+            "ជាប្រភេទថ្នាំកម្ចាត់ដង្កូវមានប្រសិទ្ធភាព ដោយប៉ះផ្ទាល់និងជ្រាប អាចកម្ចាត់ដង្កូ​វបានឆាប់រហ័ស។ វាមាន ប្រសិទ្ធភាពខ្ពស់ក្នុងការកម្ចាត់ពពួក ដង្កូវមូរស្លឹក ដង្កូវកាត់ស្លឹក ដង្កូវស៉ីរូងដើម ដង្កូវចោះផ្លែ ដង្កូវហ្វូង ដង្កូវស៉ីញ្ញេ ដង្កូវស៉ីបំផ្លាញត្រួយ និងដំណាំបន្លែជាច្រើនផ្សេងទៀត។",
+          volume: "ចំណុះ ៤៥០ម.ល",
+          category: "ថ្នាំកម្ចាត់សត្វល្អិត",
+        },
+        {
+          title: "ឥន្រ្ទី មីដា",
+          image: "https://placehold.co/400x300/007044/ffc107?text=Indra+Mida",
+          active: "Imidacloprid 150g/Kg WP",
+          benefits:
+            "គឺជាថ្នាំកម្ចាត់ពពួកសត្វល្អិតដោយការប៉ះពាល់ផ្ទាល់​ និងជ្រាបតាមបំពង់អាហារ សម្លាប់សត្វល្អិត យ៉ាង មានប្រសិទ្ធខ្ពស់បំផុត ជាពិសេសថ្នាំនេះអាចការពារ មិនឲ្យមានសត្វល្អិតចង្រៃ មកបំផ្លាញដំណាំបានរហូតដល់ទៅ ២សប្តាហ៍។",
+          volume: "ទម្ងន់ ១គីឡូ , ១០០ក្រាម",
+          category: "ថ្នាំកម្ចាត់សត្វល្អិត",
+        },
+        {
+          title: "ឥន្រ្ទី ជម្រុញឬស",
+          image: "assets/ឥន្រ្ទីជម្រុញឬស GE Root.png",
+          active: "NPK + Brassinolide + Abscisic + TE",
+          benefits:
+            "ជាប្រភេទជីអ័រម៉ូន ជួយបង្កើនការលូតលាស់កោសិកាដំណាំ និងជួយធ្វើឲ្យឬសសកម្ម បង្កើនការស្រូប យកសារធាតុចិញ្ចឹមពីក្នុងដីបានល្អ។ធ្វើឲ្យប្រសើរឡើងវិញនូវ រចនាសម្ព័ន្ធដី ជួយឲ្យចេញឬសថ្មីៗច្រើន។ ជួយពង្រឹងភាព ធន់ របស់រុក្ខជាតិចំពោះគ្រោះរាំងស្ងួត និងអាកាសធាតុត្រជាក់ ជួយបង្កើនទិន្នផល បង្កើនទម្ងន់ ផងដែរ។ ​លើសពីនេះអាច ជួយ កាត់ស្រ្តេសដំណាំ និងពង្រឹងភាពស៊ាំរបស់រុក្ខជាតិ។",
+          volume: "ចំណុះ ១លីត្រ , ៥០០ម.ល , ២៥០ម.ល",
+          category: "អ័រម៉ូនជំនួយការលូតលាស់",
+        },
+        {
+          title: "ឥន្រ្ទី អាតូនិច",
+          image: "https://placehold.co/400x300/007044/ffc107?text=Indra+Atonic",
+          active: "Sodium Nitrophenolate 1.8 +TE SL",
+          benefits:
+            "ជាប្រភេទអ័រម៉ូនបង្កើតលំហូរនៅក្នុងកោសិកាឲ្យសកម្ម ដែលធ្វើឲ្យដំណាំលូតលាស់បានលឿន បង្កើតការ លូតលាស់ឬស ធ្វើឲ្យដើម ស្លឹកលូតលាស់ធំ ការពារផ្កា និងផ្លែ។ ឥន្រ្ទី អាតូនិច ជួយបង្កើនប្រសិទ្ធភាពជីបំប៉ន ថ្នាំសត្វល្អិត និងថ្នាំជម្ងឺ។",
+          volume: "ចំណុះ ៥០០ម.ល , ២៥០ម.ល",
+          category: "អ័រម៉ូនជំនួយការលូតលាស់",
+        },
+        {
+          title: "ឥន្រ្ទី ប៉ាក្លរខ្លាំង",
+          image:
+            "https://placehold.co/400x300/007044/ffc107?text=Indra+Paklor+Klang",
+          active: "Paclobutrazol 250g/L SC",
+          benefits:
+            "ជាប្រភេទអ័រម៉ូនទឹកជម្រុញការលូតលាស់របស់ដំណាំយ៉ាងមានប្រសិទ្ធភាពដូចជា ជួយដល់ការគ្រប់គ្រង ការរីកលូតលាស់នៃស្លឹក ជម្រុញការចេញផ្កាដើម្បីបង្កើនទិន្នផលនៃការចេញផ្កាបានច្រើន លើសពីនេះជួយអភិវឌ្ឍនៃពណ៌ សម្បុរផ្លែ និងធ្វើឲ្យទំហំផ្លែត្រូវខ្នាត។លើសពីនេះអាចប្រើប្រាស់បានលើដំណាំ៖ ស្វាយកែរមៀត តាង៉ែន ស្រូវ ទុរេន និងដំណាំបន្លែជាច្រើនមុខទៀត។",
+          volume: "ចំណុះ ១លីត្រ , ៥០០ម.ល , ២៥០ម.ល",
+          category: "អ័រម៉ូនជំនួយការលូតលាស់",
+        },
+        {
+          title: "ឥន្រ្ទី ប៉ាក្លរ (ឥន្ទ្រី បែកគុម្ភ) (រូបស្រូ ចេញឬសខ្លាំង)",
+          image: "assets/ឥន្រ្ទីប៉ាក្ល GE Paclor.png",
+          active: "Paclobutrazol 150g/Kg WP",
+          benefits:
+            "ជាប្រភេទអ័រម៉ូនដែលបង្អាក់ការលូតលាស់ស្លឹកត្រួយ ហើយជម្រុញឲ្យរុក្ខជាតិបង្កើតនូវពន្លកផ្កា។​ អ័រម៉ូន ត្រូវបានស្រូបយកតាមរយះស្លឹក និងឬសរបស់រុក្ខជាតិដែលភាគច្រើនគេនិយមប្រើទៅលើដំណាំហូបផ្លែដូចជា ​ស្វាយកែវ រមៀត ​មៀន ដើម្បីជម្រុញនូវការចេញផ្កា។ ចំពោះស្រូវនិងដំណាំផ្សេងទៀត ប៉ាក្លរ ជួយកាត់បន្ថយការលូតកម្ពស់ ដើមរឹងមាំ និងបែកគុម្ព មិនដួលនៅពេលមានទឹកនិងខ្យល់ញឹកញាប់។",
+          volume: "ទម្ងន់ ១គីឡូ",
+          category: "អ័រម៉ូនជំនួយការលូតលាស់",
+        },
+        {
+          title: "ឥន្រ្ទី បើកភ្នែក៩៩",
+          image: "assets/បើកភ្នែក 99 Thiourea.png",
+          active: "Thiourea 990g/Kg SP",
+          benefits:
+            "ជាប្រភេទអ័រម៉ូន ដែលបង្កើតឡើងដើម្បីបាញ់ជម្រុះស្លឹកនិងបញ្ចេញស្លឹកថ្មី។ បើកភ្នែក៩៩ គឺជាថ្នាំដែល មាន ធាតុគីមី Thiourea មានឥទ្ធិពលទៅលើដំណាំហូបផ្លែ។",
+          volume: "ទម្ងន់ ១គីឡូ",
+          category: "អ័រម៉ូនជំនួយការលូតលាស់",
+        },
+        {
+          title: "ឥន្រ្ទី ក្លរ៤៥",
+          image: "assets/Chlor 45.png",
+          active: "Prochloraz 450g/L EW",
+          benefits:
+            "ជាថ្នាំមានលក្ខណះជម្រាបខ្ពស់ មានតួនាទីការពារ និងព្យាបាលជម្ងឺផ្សិតដែលបង្កឡើងដោយទឹកភ្លៀង និង សន្សើមប្រៃមួយចំនួន​ដូចជា៖ ជម្ងឺប្លាស អុចត្នោត ឆេះស្លឹក រលាកកកួរ​ រលួយដើម អង់ត្រាណូស ផ្សិតម្សៅ និងជម្ងឺ ផ្សេងៗទៀត ដែលបំផ្លាញលើដំណាំស្រូវ​ និងដំណាំហូបផ្លែ។",
+          volume: "ចំណុះ ១លីត្រ , ៥០០ម.ល",
+          category: "ថ្នាំការពារ និង ព្យាបាលជម្ងឺ",
+        },
+        {
+          title: "ឥន្រ្ទី ណប់៧០",
+          image: "https://placehold.co/400x300/007044/ffc107?text=Indra+Nob+70",
+          active: "Pro pineb 800 g/Kg WP",
+          benefits:
+            "ជួយការពារអាស៊ីតទឹកភ្លៀង សន្សើមប្រៃ និងធ្វើឲ្យស្លឹករបស់រុក្ខជាតិមានពណ៌បៃតងល្អពិសេសទប់ស្កាត់ ពពួកផ្សិតគ្រប់ប្រភេទយ៉ាងមានប្រសិទ្ធភាព។",
+          volume: "ទម្ងន់ ១គីឡូ , ១០០ក្រាម",
+          category: "ថ្នាំការពារ និង ព្យាបាលជម្ងឺ",
+        },
+        {
+          title: "ឥន្រ្ទី ហិកហ្សា",
+          image: "assets/Hexa.png",
+          active: "Hexaconazole 60g/L + Tricyclazole 240g/L SC",
+          benefits:
+            "គឺជាប្រភេទថ្នាំការពារ និងព្យាបាលជម្ងឺនៅលើដំណាំទូទៅដែលបង្កឡើងដោយពពួកផ្សិតព្យាបាលយ៉ាង មានប្រសិទ្ធភាពខ្ពស់។ វាមានប្រសិទ្ធភាពខ្ពស់ក្នុងការការពារ និងព្យាបាលជម្ងឺដូចជា៖ជម្ងឺប្លាស ជម្ងឺផ្សិត រលាកទងស្លឹក ច្រេះដែក អុចស្លឹក ស្កកគ្រាប់ ជាដើម។",
+          volume: "ចំណុះ ១លីត្រ , ៥០០ម.ល",
+          category: "ថ្នាំការពារ និង ព្យាបាលជម្ងឺ",
+        },
+        {
+          title: "ឥន្ទ្រី អាមីណូ",
+          image: "https://placehold.co/400x300/007044/ffc107?text=Indra+Amino",
+          active: "Boron 120g/L",
+          benefits:
+            "បង្កើនការលូតលាស់របស់ដំណាំ និងជួយដល់ការបឺតស្រូបសារធាតុចិញ្ចឹម។", // Added a more complete description
+          volume: "ចំណុះ ១លីត្រ",
+          category: "ជីប្រូតេអ៉ីន និងមីក្រូធាតុ",
+        },
+        {
+          title: "ឥន្ទ្រី ស៊ីវីដ",
+          image: "https://placehold.co/400x300/007044/ffc107?text=Indra+Amino",
+          active: "Organic Matter + Seaweed + NPK + TE",
+          benefits:
+            "ជួយឲពន្លកដុះចេញមករឹងមាំ និងធ្វើឲប្រព័ន្ធឬសរបស់ស្រូវមានសុខភាពល្អ ធ្វើឲកន្សោមកួរ ឬ​ ចង្កោម កួរច្រើន និងមានភាពស្មើគ្រប់កួរ។ ធ្វើឲដំណាំលូតលាស់បានលឿន ជម្រុញការលូតលាស់យ៉ាងឆាប់រហ័សទៅលើដំណាំ ដូចជា៖ស្ពៃក្តោប ខាត់ណាផ្កា ដំឡូងជ្វា សាឡាត់ ខ្ទឹម ដំឡូងមី ស្វាយចន្ទី តាង៉ែន ក្រូចឆ្មា សាវម៉ាវ ទុរេន ស្វាយ​ ឳឡឹក កៅស៊ូ និងដំណាំហូបផ្លែជាច្រើនមុខទៀត។", // Added a more complete description
+          volume: "ចំណុះ ១លីត្រ",
+          category: "ជីប្រូតេអ៉ីន និងមីក្រូធាតុ",
+        },
+      ];
+
+      const productGrid = document.getElementById("productGrid");
+      const searchInput = document.getElementById("searchInput");
+      const categoryFilter = document.getElementById("categoryFilter");
+
+      // Extract unique categories
+      const categories = [...new Set(products.map((p) => p.category))];
+      categories.forEach((category) => {
+        const option = document.createElement("option");
+        option.value = category;
+        option.textContent = category;
+        categoryFilter.appendChild(option);
+      });
+
+      // Function to display products
+      function displayProducts(filteredProducts) {
+        productGrid.innerHTML = "";
+        if (filteredProducts.length === 0) {
+          // Display placeholder message when no products are found\
+          const noProducts = document.getElementById("productGrid");
+          noProducts.className = "grid-cols-1";
+          productGrid.innerHTML = `
+        <div class="text-center  py-12">
+          <p class="text-xl font-semibold text-green-700">មិនអីទេ មិនមានផលិតផលសម្រាប់បង្ហាញទេ</p>
+          <p class="text-gray-600 mt-2">សូមព្យាយាមស្វែងរកជាមួយពាក្យផ្សេង ឬជ្រើសរើសប្រភេទផ្សេង</p>
+        </div>
+      `;
+          return;
+        }
+        filteredProducts.forEach((product) => {
+          const card = document.createElement("div");
+          card.className = "product-card bg-white rounded-lg shadow-md p-6 ";
+
+          card.innerHTML = `
+        <img src="${product.image}" alt="${
+            product.title
+          }" class="mb-4 rounded-md" />
+        <h3 class="card-title text-lg font-semibold mb-2">${product.title}</h3>
+        <p class="text-gray-600 mb-4">${product.active}</p>
+        <p class="text-gray-600 mb-4 line-clamp-2">${product.benefits}</p>
+
+        <p class="text-gray-600 mb-4 font-semibold">${product.category}</p>
+        <a href="product-details.html?title=${encodeURIComponent(
+          product.title
+        )}&image=${encodeURIComponent(
+            product.image
+          )}&active=${encodeURIComponent(
+            product.active
+          )}&benefits=${encodeURIComponent(
+            product.benefits
+          )}&volume=${encodeURIComponent(
+            product.volume
+          )}&category=${encodeURIComponent(
+            product.category
+          )}" class="btn-view-details px-4 py-2 rounded-md font-semibold">មើលលម្អិត</a>
+      `;
+          productGrid.appendChild(card);
+        });
+      }
+
+      // Initial display
+      displayProducts(products);
+
+      // Search and filter functionality
+      function filterProducts() {
+        const searchText = searchInput.value.toLowerCase();
+        const selectedCategory = categoryFilter.value;
+        const filteredProducts = products.filter((product) => {
+          const matchesSearch = product.title
+            .toLowerCase()
+            .includes(searchText);
+          const matchesCategory =
+            selectedCategory === "" || product.category === selectedCategory;
+          return matchesSearch && matchesCategory;
+        });
+        displayProducts(filteredProducts);
+      }
+
+      searchInput.addEventListener("input", filterProducts);
+      categoryFilter.addEventListener("change", filterProducts);
+
+      // Toggle mobile menu visibility
+      document.getElementById("mobileMenuBtn").addEventListener("click", () => {
+        document.getElementById("mobileMenu").classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>

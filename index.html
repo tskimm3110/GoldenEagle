@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GoldenEagle - ទំព័រដើម</title>
+    <link rel="icon" href="assets/BrandLogo.jpg" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap");
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Kantumruy Pro", sans-serif;
+        padding-top: 4rem;
+      }
+
+      /* Colors & Base Styles */
+      .header-bg {
+        background-color: #007044;
+        color: #ffc107;
+      }
+      .product-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      }
+      .product-card img {
+        height: 220px;
+        object-fit: contain;
+        width: 100%;
+      }
+      .card-title {
+        color: #007044;
+      }
+      .btn-view-details {
+        background-color: #00a85a;
+        border-color: #00a85a;
+        color: white;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+      .btn-view-details:hover {
+        background-color: #008f4c;
+        transform: translateY(-2px) scale(1.05);
+        color: white;
+      }
+      .social-link {
+        color: #ffc107;
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      .social-link:hover {
+        color: #fff;
+        transform: scale(1.1);
+      }
+      .footer-bg {
+        background-color: #1a1a1a;
+        color: #f0f2f5;
+      }
+      .navbar {
+        background-color: #007044;
+        color: #ffc107;
+      }
+      .nav-link {
+        color: #ffc107;
+        transition: color 0.2s ease, transform 0.2s ease;
+      }
+      .nav-link:hover {
+        color: #fff;
+        transform: scale(1.05);
+      }
+      .mobile-menu-link {
+        color: #ffc107;
+        background-color: #008f4c;
+        transition: background-color 0.2s ease;
+      }
+      .mobile-menu-link:hover {
+        background-color: #007044;
+      }
+      .hero-bg {
+        background-image: url("assets/ស្រែ.jpg");
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-overlay {
+        background-color: rgba(62, 62, 62, 0.7);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .mission-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .mission-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Custom Keyframes */
+      @keyframes fadeUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-up {
+        animation: fadeUp 1s ease-out forwards;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="navbar fixed top-0 w-full z-50 shadow-lg">
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <a
+          href="index.html"
+          class="text-2xl font-bold uppercase flex gap-2 items-center"
+        >
+          <img
+            src="assets/brandlogoNoBG.png"
+            class="w-[60px] m-0 rounded-full"
+            alt=""
+          />
+          GoldenEagle</a
+        >
+        <div class="hidden md:flex space-x-6 items-center">
+          <a href="#" class="nav-link font-bold text-lg">ទំព័រដើម</a>
+          <a href="#about" class="nav-link font-bold text-lg​">អំពីពួកយើង</a>
+          <a href="products.html" class="nav-link font-bold text-lg">ផលិតផល</a>
+          <a href="#contact" class="nav-link font-bold text-lg">ទំនាក់ទំនង</a>
+        </div>
+        <div class="md:hidden">
+          <button id="mobileMenuBtn" class="text-3xl text-yellow-400">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+      <div id="mobileMenu" class="hidden md:hidden">
+        <a
+          href="index.html"
+          class="block p-4 text-center text-lg mobile-menu-link"
+          >ទំព័រដើម</a
+        >
+        <a href="#about" class="block p-4 text-center text-lg mobile-menu-link"
+          >អំពីពួកយើង</a
+        >
+        <a
+          href="products.html"
+          class="block p-4 text-center text-lg mobile-menu-link"
+          >ផលិតផល</a
+        >
+        <a
+          href="#contact"
+          class="block p-4 text-center text-lg mobile-menu-link"
+          >ទំនាក់ទំនង</a
+        >
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-bg py-32 text-center text-white">
+      <div class="hero-overlay"></div>
+      <div class="relative container mx-auto px-4 z-10">
+        <h1
+          class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight fade-up"
+        >
+          ផលិតផលកសិកម្មដែលមានគុណភាពខ្ពស់
+        </h1>
+        <p
+          class="text-lg md:text-xl font-medium mb-8 fade-up"
+          style="animation-delay: 0.3s"
+        >
+          ដំណោះស្រាយដ៏ល្អបំផុតសម្រាប់កសិករខ្មែរ
+        </p>
+        <a
+          href="products.html"
+          class="btn-view-details text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg fade-up"
+          style="animation-delay: 0.6s"
+        >
+          ទំនិញរបស់ពួកយើង
+        </a>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <main class="container mx-auto py-12 px-4" id="about">
+      <section class="mb-16">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-1/2" data-aos="fade-right">
+            <img
+              src="https://z-p3-scontent.fpnh18-3.fna.fbcdn.net/v/t39.30808-6/482844107_1204894541638676_4419582391528530902_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFweWevDEEmkI4OSRKyH_YIgnX3zxbjN9-CdffPFuM332OBGPFviDdrkRJ3fIDfKs2_Fpb9_XQXoR9RyLOeRLMn&_nc_ohc=WiMquDCo90kQ7kNvwHSEqjM&_nc_oc=AdlEuoPacv2IrFu3Vbdgd_nTm_QgcsOFMvhfmTq6FFWUfQxdegZYnuEvtvm1C5Xlqag&_nc_zt=23&_nc_ht=z-p3-scontent.fpnh18-3.fna&_nc_gid=LZrxRXO91PRCLe9BrOCBDw&oh=00_AfUWztmjgSIoxSH4-ypn5HHA6IHqtDnJfHI0ukIO7l_yfA&oe=689D7C57"
+              alt="GoldenEagle team"
+              class="rounded-lg shadow-xl"
+            />
+          </div>
+          <div class="md:w-1/2" data-aos="fade-left">
+            <h2 class="text-4xl font-bold card-title mb-4">អំពីពួកយើង</h2>
+            <p class="text-gray-700 mb-4 text-lg">
+              ក្រុមហ៊ុន GoldenEagle
+              ត្រូវបានបង្កើតឡើងក្នុងគោលបំណងផ្គត់ផ្គង់ផលិតផលកសិកម្មដែលមានគុណភាពខ្ពស់
+              និងផ្តល់ដំណោះស្រាយប្រកបដោយប្រសិទ្ធភាពសម្រាប់កសិករខ្មែរ។
+              យើងប្តេជ្ញាជួយបង្កើនទិន្នផល និងគុណភាពកសិផលរបស់កសិករ
+              ដើម្បីចូលរួមចំណែកលើកស្ទួយវិស័យកសិកម្មនៅកម្ពុជា។
+            </p>
+            <p class="text-gray-700 text-lg">
+              យើងជឿជាក់ថា ការអភិវឌ្ឍន៍វិស័យកសិកម្មប្រកបដោយចីរភាព
+              គឺជាគន្លឹះដ៏សំខាន់សម្រាប់កំណើនសេដ្ឋកិច្ចជាតិ និងជីវភាពរបស់ប្រជាជន។
+              ហេតុនេះ យើងតែងតែខិតខំស្រាវជ្រាវ
+              និងនាំចូលផលិតផលថ្មីៗដែលមានស្តង់ដារខ្ពស់ពីបរទេស
+              ដើម្បីឆ្លើយតបទៅនឹងតម្រូវការទីផ្សារ និងបញ្ហាប្រឈមរបស់កសិករ។
+            </p>
+            <a
+              href="#"
+              class="btn-view-details inline-block mt-4 text-white font-bold py-2 px-6 rounded-md"
+            >
+              <i class="fa-solid fa-cart-shopping"></i> ផលិតផលរបស់យើង
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mission Section -->
+      <section id="mission" class="text-center mb-16">
+        <h2 class="text-4xl font-bold card-title mb-8" data-aos="fade-up">
+          បេសកកម្មរបស់យើង
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            class="mission-card bg-white rounded-lg shadow-md p-8"
+            data-aos="zoom-in"
+          >
+            <i class="fas fa-seedling text-5xl text-green-600 mb-4"></i>
+            <h3 class="text-2xl font-bold card-title mb-2">គុណភាពខ្ពស់</h3>
+            <p class="text-gray-600">
+              យើងផ្តល់ផលិតផលកសិកម្មដែលមានគុណភាពខ្ពស់ និងស្តង់ដារអន្តរជាតិ។
+            </p>
+          </div>
+          <div
+            class="mission-card bg-white rounded-lg shadow-md p-8"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <i
+              class="fas fa-hand-holding-heart text-5xl text-green-600 mb-4"
+            ></i>
+            <h3 class="text-2xl font-bold card-title mb-2">ការគាំទ្រកសិករ</h3>
+            <p class="text-gray-600">
+              យើងផ្តល់ការប្រឹក្សា និងគាំទ្របច្ចេកទេសដល់កសិករដើម្បីបង្កើនទិន្នផល។
+            </p>
+          </div>
+          <div
+            class="mission-card bg-white rounded-lg shadow-md p-8"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <i class="fas fa-leaf text-5xl text-green-600 mb-4"></i>
+            <h3 class="text-2xl font-bold card-title mb-2">
+              កសិកម្មប្រកបដោយចីរភាព
+            </h3>
+            <p class="text-gray-600" id="contact">
+              យើងលើកកម្ពស់ការអនុវត្តកសិកម្មដែលថែរក្សាបរិស្ថាន និងធនធានធម្មជាតិ។
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section
+        class="bg-white rounded-lg shadow-md p-8 text-center mb-16"
+        data-aos="fade-up"
+      >
+        <h2 class="text-4xl font-bold card-title mb-4">
+          ទំនាក់ទំនងជាមួយពួកយើង
+        </h2>
+        <p class="text-gray-700 text-lg mb-6">
+          ប្រសិនបើអ្នកមានសំណួរ ឬត្រូវការជំនួយ...
+        </p>
+        <a
+          href="https://t.me/geoperation"
+          class="btn-view-details inline-block text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg"
+        >
+          ទាក់ទងឥឡូវនេះ
+        </a>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#007044] text-[#ffc107] py-12">
+      <div class="container mx-auto px-4">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center md:text-left"
+        >
+          <div>
+            <h3 class="text-2xl font-bold mb-4 uppercase">GoldenEagle</h3>
+            <p class="text-white mb-4">
+              យើងជាក្រុមហ៊ុនផ្គត់ផ្គង់ផលិតផលកសិកម្មដែលមានគុណភាពខ្ពស់
+              ដើម្បីគាំទ្រកសិករខ្មែរ។
+            </p>
+            <div class="flex justify-center md:justify-start space-x-4">
+              <a
+                href="https://t.me/geoperation"
+                class="social-link"
+                target="_blank"
+              >
+                <i class="fab fa-telegram fa-2x"></i>
+              </a>
+              <a
+                href="https://www.facebook.com/share/16jJCKyhTN/?mibextid=wwXIfr"
+                class="social-link"
+                target="_blank"
+              >
+                <i class="fa-brands fa-facebook fa-2x"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold mb-4">រុករក</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-white">ទំព័រដើម</a></li>
+              <li>
+                <a href="#about" class="text-white">អំពីពួកយើង</a>
+              </li>
+              <li><a href="products.html" class="text-white">ផលិតផល</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold mb-4">ទំនាក់ទំនង</h3>
+            <ul class="space-y-2">
+              <li class="flex items-center justify-center md:justify-start">
+                <i class="fas fa-map-marker-alt text-green-500 mr-3"></i>
+                <span class="text-white">អាសយដ្ឋាន៖ ផ្លូវ ១២៣...</span>
+              </li>
+              <li class="flex items-center justify-center md:justify-start">
+                <i class="fas fa-phone text-green-500 mr-3"></i>
+                <span class="text-white">(+855) 12 345 678</span>
+              </li>
+              <li class="flex items-center justify-center md:justify-start">
+                <i class="fas fa-envelope text-green-500 mr-3"></i>
+                <span class="text-white">info@goldeneagle.com</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold mb-4">ស្វែងរកពួកយើង</h3>
+            <div class="bg-gray-700 h-32 rounded-lg mb-4">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18..."
+                width="100%"
+                height="100%"
+                style="border: 0"
+                loading="lazy"
+                class="rounded-lg"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <hr class="border-[#ffc107] my-8" />
+        <p class="text-center text-white text-sm">
+          &copy; 2025 GoldenEagle. រក្សាសិទ្ធិគ្រប់យ៉ាង។
+        </p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      document.getElementById("mobileMenuBtn").addEventListener("click", () => {
+        document.getElementById("mobileMenu").classList.toggle("hidden");
+      });
+      AOS.init({ duration: 1000, once: true });
+    </script>
+  </body>
+</html>
